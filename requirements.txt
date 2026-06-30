@@ -1,0 +1,26 @@
+# Scraping
+beautifulsoup4==4.12.3
+requests==2.31.0
+feedparser==6.0.11
+
+# Data Processing
+pandas==2.2.0
+numpy==1.26.3
+fasttext==0.9.2
+langdetect==1.0.9
+
+# ML & Deep Learning
+scikit-learn==1.4.0
+transformers==4.37.2
+torch==2.2.0
+
+# API Backend
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+
+# Frontend
+streamlit==1.30.0
+
+# Bot
+python-telegram-bot==20.7
