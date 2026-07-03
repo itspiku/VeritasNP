@@ -23,7 +23,7 @@ class VeritasDataset(Dataset):
         if not all_files:
             raise FileNotFoundError(f"No CSV files found in {data_dir}")
             
-        df_list = [pd.read_csv(f) for f in all_files]
+        df_list = [pd.read_csv(f, on_bad_lines='skip') for f in all_files]
         self.data_frame = pd.concat(df_list, ignore_index=True)
         
         # Drop rows missing crucial text or labels
@@ -83,6 +83,6 @@ if __name__ == "__main__":
         print(f"\nFirst Sample:")
         print(f"Label: {sample['label']}")
         print(f"Metadata: {sample['metadata']}")
-        print(f"Text Snippet: {sample['text'][:100]}...")
+        print(f"Text Snippet: {sample['text'][:100].encode('utf-8', errors='ignore').decode('utf-8')}...")
     else:
         print(f"Data directory not found at {test_dir}. Please verify the path.")
