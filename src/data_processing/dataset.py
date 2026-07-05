@@ -62,12 +62,12 @@ class VeritasDataset(Dataset):
 
         return sample
 
-def create_dataloader(data_dir: str, batch_size: int = 32, shuffle: bool = True, num_workers: int = 0):
+def create_dataloader(data_dir: str, batch_size: int = 32, shuffle: bool = True, num_workers: int = 4):
     """
     Helper function to create a PyTorch DataLoader for the VeritasDataset.
     """
     dataset = VeritasDataset(data_dir)
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, pin_memory=True)
 
 if __name__ == "__main__":
     # Quick sanity check
